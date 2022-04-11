@@ -2,11 +2,13 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-LCD.c
+function\Function.c
+
+lcd\LCD.c
 
 main.c
 
-Servo.c
+servo\Servo.c
 
-UART.c
+uart\UART.c
 

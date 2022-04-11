@@ -5,44 +5,43 @@ d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
                               main.o (__do_copy_data)
 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
-                              LCD.o (eeprom_read_byte)
+                              lcd/LCD.o (eeprom_read_byte)
 
 Discarded input sections
 
  .data          0x00000000        0x0 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .bss           0x00000000        0x0 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .text          0x00000000        0x0 LCD.o
- .data          0x00000000        0x0 LCD.o
- .bss           0x00000000        0x0 LCD.o
+ .text          0x00000000        0x0 function/Function.o
+ .data          0x00000000        0x0 function/Function.o
+ .bss           0x00000000        0x0 function/Function.o
+ .text          0x00000000        0x0 lcd/LCD.o
+ .data          0x00000000        0x0 lcd/LCD.o
+ .bss           0x00000000        0x0 lcd/LCD.o
  .text.lcdGetNibble
-                0x00000000       0x56 LCD.o
+                0x00000000       0x56 lcd/LCD.o
  .text.lcdRawGetByte
-                0x00000000       0x1e LCD.o
+                0x00000000       0x1e lcd/LCD.o
  .text.lcdDisplayScroll
-                0x00000000       0x28 LCD.o
+                0x00000000       0x28 lcd/LCD.o
  .text.lcdPutsf
-                0x00000000       0x34 LCD.o
+                0x00000000       0x34 lcd/LCD.o
  .text.lcdPutse
-                0x00000000       0x3c LCD.o
+                0x00000000       0x3c lcd/LCD.o
  .text.lcdLoadCharacter
-                0x00000000       0x70 LCD.o
+                0x00000000       0x70 lcd/LCD.o
  .text.lcdLoadCharacterf
-                0x00000000       0x70 LCD.o
+                0x00000000       0x70 lcd/LCD.o
  .text.lcdLoadCharactere
-                0x00000000       0x72 LCD.o
+                0x00000000       0x72 lcd/LCD.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text          0x00000000        0x0 Servo.o
- .data          0x00000000        0x0 Servo.o
- .bss           0x00000000        0x0 Servo.o
- .text          0x00000000        0x0 UART.o
- .data          0x00000000        0x0 UART.o
- .bss           0x00000000        0x0 UART.o
- .text.UART_getc
-                0x00000000        0xe UART.o
- .text.UART_getLine
-                0x00000000       0x3a UART.o
+ .text          0x00000000        0x0 servo/Servo.o
+ .data          0x00000000        0x0 servo/Servo.o
+ .bss           0x00000000        0x0 servo/Servo.o
+ .text          0x00000000        0x0 uart/UART.o
+ .data          0x00000000        0x0 uart/UART.o
+ .bss           0x00000000        0x0 uart/UART.o
  .text          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -102,10 +101,11 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
-LOAD LCD.o
+LOAD function/Function.o
+LOAD lcd/LCD.o
 LOAD main.o
-LOAD Servo.o
-LOAD UART.o
+LOAD servo/Servo.o
+LOAD uart/UART.o
 START GROUP
 LOAD d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 END GROUP
@@ -215,7 +215,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x342
+.text           0x00000000      0x4a8
  *(.vectors)
  .vectors       0x00000000       0x68 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -293,59 +293,69 @@ END GROUP
                 0x00000092                __vector_21
                 0x00000092                __vector_15
                 0x00000092                __vector_8
-                0x00000092                __vector_14
                 0x00000092                __vector_10
                 0x00000092                __vector_16
                 0x00000092                __vector_18
                 0x00000092                __vector_20
                 0x00000096                . = ALIGN (0x2)
  *(.text.*)
+ .text.atoi     0x00000096       0x62 function/Function.o
+                0x00000096                atoi
  .text.lcdSendNibble
-                0x00000096       0x68 LCD.o
-                0x00000096                lcdSendNibble
+                0x000000f8       0x68 lcd/LCD.o
+                0x000000f8                lcdSendNibble
  .text.lcdRawSendByte
-                0x000000fe       0x1e LCD.o
-                0x000000fe                lcdRawSendByte
+                0x00000160       0x1e lcd/LCD.o
+                0x00000160                lcdRawSendByte
  .text.lcdIsBusy
-                0x0000011c       0x10 LCD.o
-                0x0000011c                lcdIsBusy
- .text.lcdInit  0x0000012c       0x52 LCD.o
-                0x0000012c                lcdInit
+                0x0000017e       0x10 lcd/LCD.o
+                0x0000017e                lcdIsBusy
+ .text.lcdInit  0x0000018e       0x52 lcd/LCD.o
+                0x0000018e                lcdInit
  .text.lcdSetCursor
-                0x0000017e       0x1a LCD.o
-                0x0000017e                lcdSetCursor
+                0x000001e0       0x1a lcd/LCD.o
+                0x000001e0                lcdSetCursor
  .text.lcdSetDisplay
-                0x00000198       0x1a LCD.o
-                0x00000198                lcdSetDisplay
+                0x000001fa       0x1a lcd/LCD.o
+                0x000001fa                lcdSetDisplay
  .text.lcdClear
-                0x000001b2       0x12 LCD.o
-                0x000001b2                lcdClear
+                0x00000214       0x12 lcd/LCD.o
+                0x00000214                lcdClear
  .text.lcdGotoXY
-                0x000001c4       0x28 LCD.o
-                0x000001c4                lcdGotoXY
- .text.lcdPuts  0x000001ec       0x34 LCD.o
-                0x000001ec                lcdPuts
- .text.main     0x00000220       0x9a main.o
-                0x00000220                main
+                0x00000226       0x28 lcd/LCD.o
+                0x00000226                lcdGotoXY
+ .text.lcdPuts  0x0000024e       0x34 lcd/LCD.o
+                0x0000024e                lcdPuts
+ .text.__vector_14
+                0x00000282       0xa4 main.o
+                0x00000282                __vector_14
+ .text.main     0x00000326       0xb2 main.o
+                0x00000326                main
  .text.SERVO_INIT
-                0x000002ba       0x28 Servo.o
-                0x000002ba                SERVO_INIT
- .text.Wait     0x000002e2       0x20 Servo.o
-                0x000002e2                Wait
+                0x000003d8       0x28 servo/Servo.o
+                0x000003d8                SERVO_INIT
+ .text.Wait     0x00000400       0x20 servo/Servo.o
+                0x00000400                Wait
  .text.UART_init
-                0x00000302       0x14 UART.o
-                0x00000302                UART_init
+                0x00000420       0x14 uart/UART.o
+                0x00000420                UART_init
  .text.UART_putc
-                0x00000316        0xe UART.o
-                0x00000316                UART_putc
+                0x00000434        0xe uart/UART.o
+                0x00000434                UART_putc
  .text.UART_puts
-                0x00000324       0x1a UART.o
-                0x00000324                UART_puts
-                0x0000033e                . = ALIGN (0x2)
+                0x00000442       0x1a uart/UART.o
+                0x00000442                UART_puts
+ .text.UART_getc
+                0x0000045c        0xe uart/UART.o
+                0x0000045c                UART_getc
+ .text.UART_getLine
+                0x0000046a       0x3a uart/UART.o
+                0x0000046a                UART_getLine
+                0x000004a4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000033e        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x0000033e                _exit
-                0x0000033e                exit
+ .fini9         0x000004a4        0x0 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000004a4                _exit
+                0x000004a4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -364,38 +374,41 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000033e        0x4 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000004a4        0x4 d:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000342                _etext = .
+                0x000004a8                _etext = .
 
-.data           0x00800100       0x28 load address 0x00000342
+.data           0x00800100       0x4c load address 0x000004a8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
+ .data.input_number
+                0x00800100        0x1 main.o
+                0x00800100                input_number
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800100       0x28 main.o
+                0x00800101       0x4b main.o
  *(.gnu.linkonce.r*)
-                0x00800128                . = ALIGN (0x2)
-                0x00800128                _edata = .
-                0x00800128                PROVIDE (__data_end, .)
+                0x0080014c                . = ALIGN (0x2)
+                0x0080014c                _edata = .
+                0x0080014c                PROVIDE (__data_end, .)
 
-.bss            0x00800128        0x0
+.bss            0x0080014c        0x0
                 [!provide]                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
-                0x00000342                __data_load_start = LOADADDR (.data)
-                0x0000036a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000004a8                __data_load_start = LOADADDR (.data)
+                0x000004f4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800128        0x0
+.noinit         0x0080014c        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800128                _end = .
+                0x0080014c                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -437,11 +450,12 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 LCD.o
+ .comment       0x00000000       0x30 function/Function.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 lcd/LCD.o
  .comment       0x00000030       0x31 main.o
- .comment       0x00000030       0x31 Servo.o
- .comment       0x00000030       0x31 UART.o
+ .comment       0x00000030       0x31 servo/Servo.o
+ .comment       0x00000030       0x31 uart/UART.o
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x40
@@ -463,68 +477,78 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x128
+.debug_aranges  0x00000000      0x150
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0xa0 LCD.o
+                0x00000000       0x20 function/Function.o
  .debug_aranges
-                0x000000a0       0x20 main.o
+                0x00000020       0xa0 lcd/LCD.o
  .debug_aranges
-                0x000000c0       0x28 Servo.o
+                0x000000c0       0x28 main.o
  .debug_aranges
-                0x000000e8       0x40 UART.o
+                0x000000e8       0x28 servo/Servo.o
+ .debug_aranges
+                0x00000110       0x40 uart/UART.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x13bf
+.debug_info     0x00000000     0x154d
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_info    0x000005f4      0x8fd LCD.o
- .debug_info    0x00000ef1      0x23a main.o
- .debug_info    0x0000112b      0x11c Servo.o
- .debug_info    0x00001247      0x178 UART.o
+ .debug_info    0x000005f4       0x8a function/Function.o
+ .debug_info    0x0000067e      0x8fd lcd/LCD.o
+ .debug_info    0x00000f7b      0x33e main.o
+ .debug_info    0x000012b9      0x11c servo/Servo.o
+ .debug_info    0x000013d5      0x178 uart/UART.o
 
-.debug_abbrev   0x00000000      0xa21
+.debug_abbrev   0x00000000      0xae6
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_abbrev  0x000005a2      0x219 LCD.o
- .debug_abbrev  0x000007bb       0xad main.o
- .debug_abbrev  0x00000868       0xbb Servo.o
- .debug_abbrev  0x00000923       0xfe UART.o
+ .debug_abbrev  0x000005a2       0x6f function/Function.o
+ .debug_abbrev  0x00000611      0x219 lcd/LCD.o
+ .debug_abbrev  0x0000082a      0x103 main.o
+ .debug_abbrev  0x0000092d       0xbb servo/Servo.o
+ .debug_abbrev  0x000009e8       0xfe uart/UART.o
 
-.debug_line     0x00000000      0xb63
+.debug_line     0x00000000      0xc72
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_line    0x00000134      0x5e9 LCD.o
- .debug_line    0x0000071d      0x177 main.o
- .debug_line    0x00000894      0x158 Servo.o
- .debug_line    0x000009ec      0x177 UART.o
+ .debug_line    0x00000134       0x8a function/Function.o
+ .debug_line    0x000001be      0x5eb lcd/LCD.o
+ .debug_line    0x000007a9      0x1f3 main.o
+ .debug_line    0x0000099c      0x15c servo/Servo.o
+ .debug_line    0x00000af8      0x17a uart/UART.o
 
-.debug_frame    0x00000000      0x2d0
+.debug_frame    0x00000000      0x370
  *(.debug_frame)
- .debug_frame   0x00000000      0x1f4 LCD.o
- .debug_frame   0x000001f4       0x24 main.o
- .debug_frame   0x00000218       0x34 Servo.o
- .debug_frame   0x0000024c       0x84 UART.o
+ .debug_frame   0x00000000       0x24 function/Function.o
+ .debug_frame   0x00000024      0x1f4 lcd/LCD.o
+ .debug_frame   0x00000218       0xa0 main.o
+ .debug_frame   0x000002b8       0x34 servo/Servo.o
+ .debug_frame   0x000002ec       0x84 uart/UART.o
 
-.debug_str      0x00000000      0x556
+.debug_str      0x00000000      0x5af
  *(.debug_str)
  .debug_str     0x00000000      0x208 D:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x2aa LCD.o
-                                0x2e8 (size before relaxing)
- .debug_str     0x000004b2       0x43 main.o
-                                0x1dd (size before relaxing)
- .debug_str     0x000004f5       0x23 Servo.o
-                                0x192 (size before relaxing)
- .debug_str     0x00000518       0x3e UART.o
-                                0x1b6 (size before relaxing)
+ .debug_str     0x00000208      0x109 function/Function.o
+                                0x115 (size before relaxing)
+ .debug_str     0x00000311      0x1c5 lcd/LCD.o
+                                0x2ea (size before relaxing)
+ .debug_str     0x000004d6       0x7e main.o
+                                0x225 (size before relaxing)
+ .debug_str     0x00000554       0x27 servo/Servo.o
+                                0x196 (size before relaxing)
+ .debug_str     0x0000057b       0x34 uart/UART.o
+                                0x1b9 (size before relaxing)
 
-.debug_loc      0x00000000      0xae9
+.debug_loc      0x00000000      0xcc8
  *(.debug_loc)
- .debug_loc     0x00000000      0x93c LCD.o
- .debug_loc     0x0000093c       0x5b Servo.o
- .debug_loc     0x00000997      0x152 UART.o
+ .debug_loc     0x00000000       0x80 function/Function.o
+ .debug_loc     0x00000080      0x93c lcd/LCD.o
+ .debug_loc     0x000009bc      0x15f main.o
+ .debug_loc     0x00000b1b       0x5b servo/Servo.o
+ .debug_loc     0x00000b76      0x152 uart/UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -544,12 +568,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x100
+.debug_ranges   0x00000000      0x118
  *(.debug_ranges)
- .debug_ranges  0x00000000       0xa8 LCD.o
- .debug_ranges  0x000000a8       0x10 main.o
- .debug_ranges  0x000000b8       0x18 Servo.o
- .debug_ranges  0x000000d0       0x30 UART.o
+ .debug_ranges  0x00000000       0x10 function/Function.o
+ .debug_ranges  0x00000010       0xa8 lcd/LCD.o
+ .debug_ranges  0x000000b8       0x18 main.o
+ .debug_ranges  0x000000d0       0x18 servo/Servo.o
+ .debug_ranges  0x000000e8       0x30 uart/UART.o
 
 .debug_macro
  *(.debug_macro)
