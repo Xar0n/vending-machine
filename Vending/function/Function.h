@@ -9,6 +9,7 @@
 #ifndef FUNCTION_H_
 #define FUNCTION_H_
 
-int atoi(char *str);
+int ats(char *str);
+char* convertIntegerToChar(int N);
 
 #endif /* FUNCTION_H_ */

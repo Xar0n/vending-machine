@@ -6,6 +6,15 @@
 #include <avr/interrupt.h>
 #include "LCD.h"
 
+
+void lcdPrintStart(char *str, int num)
+{
+	if(num == 0)lcdClear();
+	lcdGotoXY(num, 0);
+	lcdPuts(str);
+}
+
+
 /*
   Отправляет младшую половину байта byte в LCD. Если state == 0,
   то передаётся как команда, если нет, то как данные.

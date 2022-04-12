@@ -35,6 +35,7 @@
 
 #define DELAY              1
 
+void lcdPrintStart(char *str, int num);
 void lcdSendNibble(char byte, char state);
 char lcdGetNibble(char state);
 char lcdRawGetByte(char state);
